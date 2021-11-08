@@ -1,3 +1,29 @@
-version: '3'
-services: 
-   
+version: '3.12'
+  services:
+    back-end:
+      build: ./back-end
+      image: backend
+      restart: always
+      ports: 
+        - 3001:3001
+
+    front-end:
+      build: ./todo-list
+      image: frontend
+      restart: always
+      ports: 
+        - 3000:3000
+      environment: 
+        REACT_APP_API_HOST: front-end
+      depends_on: 
+        - front-end
+  
+
+    tests:
+      build: ./tests
+      image: tests
+      restart: always
+      environment: 
+        FRONT_HOST: front-end
+      depends_on: 
+        - front-end
