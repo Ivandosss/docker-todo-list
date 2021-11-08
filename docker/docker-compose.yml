@@ -18,7 +18,6 @@ version: '3.12'
       depends_on: 
         - front-end
   
-
     tests:
       build: ./tests
       image: tests
