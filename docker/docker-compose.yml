@@ -2,7 +2,6 @@ version: '3'
   services:
 
     todotests:
-      build: ./tests
       image: todotests
       restart: always
       environment: 
@@ -11,7 +10,6 @@ version: '3'
         - front-end
 
     todofrontend:
-      build: ./todo-list
       image: todofrontend
       restart: always
       ports: 
@@ -23,7 +21,6 @@ version: '3'
   
 
     todobeckend:
-      build: ./back-end
       image: todobackend
       restart: always
       ports: 
